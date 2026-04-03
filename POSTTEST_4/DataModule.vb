@@ -2,39 +2,46 @@
 Imports System.Text
 
 Module DataModule
+
     Public Function BuatRingkasan(
         nama As String,
-        nim As String,
-        jenisKelamin As String,
-        prodi As String,
-        noHp As String,
-        alamat As String
+        id As String,
+        komunitas As String,
+        telepon As String,
+        email As String,
+        alamat As String,
+        hobi As String
     ) As String
 
         Return "Nama            : " & nama & Environment.NewLine &
-               "NIM             : " & nim & Environment.NewLine &
-               "Jenis Kelamin   : " & jenisKelamin & Environment.NewLine &
-               "Prodi           : " & prodi & Environment.NewLine &
-               "Nomor HP        : " & noHp & Environment.NewLine &
-               "Alamat          : " & alamat
+               "ID Anggota      : " & id & Environment.NewLine &
+               "Komunitas       : " & komunitas & Environment.NewLine &
+               "Telepon         : " & telepon & Environment.NewLine &
+               "Email           : " & email & Environment.NewLine &
+               "Alamat          : " & alamat & Environment.NewLine &
+               "Hobi/Aktivitas  : " & hobi.Replace(vbCrLf, ", ")
     End Function
-
     Public Function BuatIsiFile(
         nama As String,
-        nim As String,
-        jenisKelamin As String,
-        prodi As String,
-        noHp As String,
-        alamat As String
+        id As String,
+        komunitas As String,
+        telepon As String,
+        email As String,
+        alamat As String,
+        hobi As String
     ) As String
 
         Dim sb As New StringBuilder()
 
         sb.AppendLine("Nama=" & nama.Trim())
-        sb.AppendLine("NIM=" & nim.Trim())
-        sb.AppendLine("JenisKelamin=" & jenisKelamin.Trim())
-        sb.AppendLine("Prodi=" & prodi.Trim())
-        sb.AppendLine("NoHP=" & noHp)
+        sb.AppendLine("ID=" & id.Trim())
+        sb.AppendLine("Komunitas=" & komunitas.Trim())
+        sb.AppendLine("Telepon=" & telepon.Trim())
+        sb.AppendLine("Email=" & email.Trim())
+
+        Dim hobiSatuBaris As String = hobi.Replace(vbCrLf, ", ").Replace("- ", "").Trim(New Char() {","c, " "c})
+        sb.AppendLine("Hobi=" & hobiSatuBaris)
+
         sb.Append("Alamat=" & alamat.Trim())
 
         Return sb.ToString()
@@ -47,7 +54,7 @@ Module DataModule
     ) As Boolean
 
         sfd.Filter = "Text File|*.txt|CSV File|*.csv"
-        sfd.Title = "Simpan Data"
+        sfd.Title = "Simpan Data Komunitas"
         sfd.FileName = namaFileDefault
 
         If sfd.ShowDialog() = DialogResult.OK Then
@@ -60,7 +67,7 @@ Module DataModule
 
     Public Function BukaDataDariFile(ofd As OpenFileDialog) As Dictionary(Of String, String)
         ofd.Filter = "Text File|*.txt|CSV File|*.csv"
-        ofd.Title = "Buka Data"
+        ofd.Title = "Buka Data Komunitas"
 
         If ofd.ShowDialog() <> DialogResult.OK Then
             Return Nothing
@@ -72,6 +79,7 @@ Module DataModule
         For Each baris As String In barisFile
             If String.IsNullOrWhiteSpace(baris) Then Continue For
 
+            ' Pisahkan teks berdasarkan tanda sama dengan "="
             Dim bagian() As String = baris.Split(New Char() {"="c}, 2)
 
             If bagian.Length = 2 Then

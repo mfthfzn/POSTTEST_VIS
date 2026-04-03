@@ -22,14 +22,15 @@ Partial Class Form_Input
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
         MenuStrip = New MenuStrip()
         InputDataToolStripMenuItem = New ToolStripMenuItem()
         LihatKartuToolStripMenuItem = New ToolStripMenuItem()
         SimpanDataToolStripMenuItem = New ToolStripMenuItem()
         BukaDataToolStripMenuItem = New ToolStripMenuItem()
         KeluarToolStripMenuItem = New ToolStripMenuItem()
-        lblJudul = New Label()
-        PictureBoxLogo = New PictureBox()
+        lblJudul1 = New Label()
+        pbLogo = New PictureBox()
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
         cbKomunitas = New ComboBox()
@@ -53,41 +54,45 @@ Partial Class Form_Input
         TabPage3 = New TabPage()
         btnSimpanCetak = New Button()
         GroupBoxHobby = New GroupBox()
-        chkHobi8 = New CheckBox()
-        chkHobi7 = New CheckBox()
-        chkHobi6 = New CheckBox()
-        chkHobi5 = New CheckBox()
-        chkHobi4 = New CheckBox()
-        chkHobi3 = New CheckBox()
-        chkHobi2 = New CheckBox()
-        chkHobi1 = New CheckBox()
+        cbHobi8 = New CheckBox()
+        cbHobi7 = New CheckBox()
+        cbHobi6 = New CheckBox()
+        cbHobi5 = New CheckBox()
+        cbHobi4 = New CheckBox()
+        cbHobi3 = New CheckBox()
+        cbHobi2 = New CheckBox()
+        cbHobi1 = New CheckBox()
         GroupBoxPeran = New GroupBox()
         rbAdmin = New RadioButton()
         rbAnggota = New RadioButton()
         rbKetua = New RadioButton()
         btnBrowse = New Button()
-        PictureBoxProfil = New PictureBox()
+        pbProfil = New PictureBox()
         OpenFileDialog1 = New OpenFileDialog()
         SaveFileDialog1 = New SaveFileDialog()
         Panel1 = New Panel()
+        lblJudul2 = New Label()
         FlowLayoutPanel1 = New FlowLayoutPanel()
         Panel2 = New Panel()
         Panel4 = New Panel()
+        ErrorProvider1 = New ErrorProvider(components)
         MenuStrip.SuspendLayout()
-        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).BeginInit()
+        CType(pbLogo, ComponentModel.ISupportInitialize).BeginInit()
         TabControl1.SuspendLayout()
         TabPage1.SuspendLayout()
         TabPage2.SuspendLayout()
         TabPage3.SuspendLayout()
         GroupBoxHobby.SuspendLayout()
         GroupBoxPeran.SuspendLayout()
-        CType(PictureBoxProfil, ComponentModel.ISupportInitialize).BeginInit()
+        CType(pbProfil, ComponentModel.ISupportInitialize).BeginInit()
+        Panel1.SuspendLayout()
+        CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' MenuStrip
         ' 
-        MenuStrip.BackColor = Color.FromArgb(CByte(26), CByte(42), CByte(58))
-        MenuStrip.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        MenuStrip.BackColor = Color.MidnightBlue
+        MenuStrip.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         MenuStrip.ImageScalingSize = New Size(20, 20)
         MenuStrip.ImeMode = ImeMode.NoControl
         MenuStrip.Items.AddRange(New ToolStripItem() {InputDataToolStripMenuItem, LihatKartuToolStripMenuItem, SimpanDataToolStripMenuItem, BukaDataToolStripMenuItem, KeluarToolStripMenuItem})
@@ -132,34 +137,36 @@ Partial Class Form_Input
         KeluarToolStripMenuItem.Size = New Size(68, 24)
         KeluarToolStripMenuItem.Text = "Keluar"
         ' 
-        ' lblJudul
+        ' lblJudul1
         ' 
-        lblJudul.AutoSize = True
-        lblJudul.BackColor = Color.FromArgb(CByte(26), CByte(42), CByte(58))
-        lblJudul.Font = New Font("Verdana", 16.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblJudul.ForeColor = Color.White
-        lblJudul.Location = New Point(12, 59)
-        lblJudul.Name = "lblJudul"
-        lblJudul.Size = New Size(572, 34)
-        lblJudul.TabIndex = 1
-        lblJudul.Text = "Aplikasi Pembuat Kartu Komunitas"
+        lblJudul1.AutoSize = True
+        lblJudul1.BackColor = Color.MidnightBlue
+        lblJudul1.Font = New Font("Verdana", 13.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblJudul1.ForeColor = Color.White
+        lblJudul1.Location = New Point(12, 49)
+        lblJudul1.Name = "lblJudul1"
+        lblJudul1.Size = New Size(458, 28)
+        lblJudul1.TabIndex = 1
+        lblJudul1.Text = "Aplikasi Pembuat Kartu Komunitas"
         ' 
-        ' PictureBoxLogo
+        ' pbLogo
         ' 
-        PictureBoxLogo.BackColor = Color.White
-        PictureBoxLogo.BorderStyle = BorderStyle.FixedSingle
-        PictureBoxLogo.Location = New Point(620, 37)
-        PictureBoxLogo.Name = "PictureBoxLogo"
-        PictureBoxLogo.Size = New Size(82, 80)
-        PictureBoxLogo.TabIndex = 2
-        PictureBoxLogo.TabStop = False
+        pbLogo.BackColor = Color.Transparent
+        pbLogo.BorderStyle = BorderStyle.FixedSingle
+        pbLogo.Image = My.Resources.Resources.logo_gsw
+        pbLogo.Location = New Point(620, 39)
+        pbLogo.Name = "pbLogo"
+        pbLogo.Size = New Size(82, 80)
+        pbLogo.SizeMode = PictureBoxSizeMode.Zoom
+        pbLogo.TabIndex = 2
+        pbLogo.TabStop = False
         ' 
         ' TabControl1
         ' 
         TabControl1.Controls.Add(TabPage1)
         TabControl1.Controls.Add(TabPage2)
         TabControl1.Controls.Add(TabPage3)
-        TabControl1.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        TabControl1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         TabControl1.Location = New Point(12, 148)
         TabControl1.Name = "TabControl1"
         TabControl1.SelectedIndex = 0
@@ -308,7 +315,7 @@ Partial Class Form_Input
         ' 
         ' txtAlamat
         ' 
-        txtAlamat.Location = New Point(125, 107)
+        txtAlamat.Location = New Point(136, 107)
         txtAlamat.Multiline = True
         txtAlamat.Name = "txtAlamat"
         txtAlamat.Size = New Size(250, 69)
@@ -326,7 +333,7 @@ Partial Class Form_Input
         ' 
         ' txtEmail
         ' 
-        txtEmail.Location = New Point(125, 66)
+        txtEmail.Location = New Point(136, 66)
         txtEmail.Name = "txtEmail"
         txtEmail.Size = New Size(250, 27)
         txtEmail.TabIndex = 3
@@ -343,7 +350,7 @@ Partial Class Form_Input
         ' 
         ' mtbTelepon
         ' 
-        mtbTelepon.Location = New Point(125, 27)
+        mtbTelepon.Location = New Point(136, 27)
         mtbTelepon.Mask = "(9999) 0000-0000"
         mtbTelepon.Name = "mtbTelepon"
         mtbTelepon.Size = New Size(250, 27)
@@ -355,9 +362,9 @@ Partial Class Form_Input
         lblTelepon.Font = New Font("Segoe UI", 10.2F, FontStyle.Bold)
         lblTelepon.Location = New Point(25, 30)
         lblTelepon.Name = "lblTelepon"
-        lblTelepon.Size = New Size(71, 23)
+        lblTelepon.Size = New Size(91, 23)
         lblTelepon.TabIndex = 0
-        lblTelepon.Text = "No Telp"
+        lblTelepon.Text = "No Telpon"
         ' 
         ' TabPage3
         ' 
@@ -366,7 +373,7 @@ Partial Class Form_Input
         TabPage3.Controls.Add(GroupBoxHobby)
         TabPage3.Controls.Add(GroupBoxPeran)
         TabPage3.Controls.Add(btnBrowse)
-        TabPage3.Controls.Add(PictureBoxProfil)
+        TabPage3.Controls.Add(pbProfil)
         TabPage3.Location = New Point(4, 29)
         TabPage3.Name = "TabPage3"
         TabPage3.Size = New Size(689, 278)
@@ -379,25 +386,25 @@ Partial Class Form_Input
         btnSimpanCetak.Cursor = Cursors.Hand
         btnSimpanCetak.FlatAppearance.BorderSize = 0
         btnSimpanCetak.FlatStyle = FlatStyle.Flat
-        btnSimpanCetak.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnSimpanCetak.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnSimpanCetak.ForeColor = Color.White
-        btnSimpanCetak.Location = New Point(504, 227)
+        btnSimpanCetak.Location = New Point(462, 227)
         btnSimpanCetak.Name = "btnSimpanCetak"
-        btnSimpanCetak.Size = New Size(159, 38)
+        btnSimpanCetak.Size = New Size(201, 38)
         btnSimpanCetak.TabIndex = 4
-        btnSimpanCetak.Text = "Simpan Kartu"
+        btnSimpanCetak.Text = "Simpan dan Cetak Kartu"
         btnSimpanCetak.UseVisualStyleBackColor = False
         ' 
         ' GroupBoxHobby
         ' 
-        GroupBoxHobby.Controls.Add(chkHobi8)
-        GroupBoxHobby.Controls.Add(chkHobi7)
-        GroupBoxHobby.Controls.Add(chkHobi6)
-        GroupBoxHobby.Controls.Add(chkHobi5)
-        GroupBoxHobby.Controls.Add(chkHobi4)
-        GroupBoxHobby.Controls.Add(chkHobi3)
-        GroupBoxHobby.Controls.Add(chkHobi2)
-        GroupBoxHobby.Controls.Add(chkHobi1)
+        GroupBoxHobby.Controls.Add(cbHobi8)
+        GroupBoxHobby.Controls.Add(cbHobi7)
+        GroupBoxHobby.Controls.Add(cbHobi6)
+        GroupBoxHobby.Controls.Add(cbHobi5)
+        GroupBoxHobby.Controls.Add(cbHobi4)
+        GroupBoxHobby.Controls.Add(cbHobi3)
+        GroupBoxHobby.Controls.Add(cbHobi2)
+        GroupBoxHobby.Controls.Add(cbHobi1)
         GroupBoxHobby.Location = New Point(145, 118)
         GroupBoxHobby.Name = "GroupBoxHobby"
         GroupBoxHobby.Size = New Size(518, 103)
@@ -405,85 +412,85 @@ Partial Class Form_Input
         GroupBoxHobby.TabStop = False
         GroupBoxHobby.Text = "Hobby / Aktivitas"
         ' 
-        ' chkHobi8
+        ' cbHobi8
         ' 
-        chkHobi8.AutoSize = True
-        chkHobi8.Location = New Point(396, 59)
-        chkHobi8.Name = "chkHobi8"
-        chkHobi8.Size = New Size(98, 24)
-        chkHobi8.TabIndex = 7
-        chkHobi8.Text = "Travelling"
-        chkHobi8.UseVisualStyleBackColor = True
+        cbHobi8.AutoSize = True
+        cbHobi8.Location = New Point(396, 59)
+        cbHobi8.Name = "cbHobi8"
+        cbHobi8.Size = New Size(98, 24)
+        cbHobi8.TabIndex = 7
+        cbHobi8.Text = "Travelling"
+        cbHobi8.UseVisualStyleBackColor = True
         ' 
-        ' chkHobi7
+        ' cbHobi7
         ' 
-        chkHobi7.AutoSize = True
-        chkHobi7.Location = New Point(257, 59)
-        chkHobi7.Name = "chkHobi7"
-        chkHobi7.Size = New Size(94, 24)
-        chkHobi7.TabIndex = 6
-        chkHobi7.Text = "Fotografi"
-        chkHobi7.UseVisualStyleBackColor = True
+        cbHobi7.AutoSize = True
+        cbHobi7.Location = New Point(257, 59)
+        cbHobi7.Name = "cbHobi7"
+        cbHobi7.Size = New Size(94, 24)
+        cbHobi7.TabIndex = 6
+        cbHobi7.Text = "Fotografi"
+        cbHobi7.UseVisualStyleBackColor = True
         ' 
-        ' chkHobi6
+        ' cbHobi6
         ' 
-        chkHobi6.AutoSize = True
-        chkHobi6.Location = New Point(125, 59)
-        chkHobi6.Name = "chkHobi6"
-        chkHobi6.Size = New Size(77, 24)
-        chkHobi6.TabIndex = 5
-        chkHobi6.Text = "Desain"
-        chkHobi6.UseVisualStyleBackColor = True
+        cbHobi6.AutoSize = True
+        cbHobi6.Location = New Point(125, 59)
+        cbHobi6.Name = "cbHobi6"
+        cbHobi6.Size = New Size(77, 24)
+        cbHobi6.TabIndex = 5
+        cbHobi6.Text = "Desain"
+        cbHobi6.UseVisualStyleBackColor = True
         ' 
-        ' chkHobi5
+        ' cbHobi5
         ' 
-        chkHobi5.AutoSize = True
-        chkHobi5.Location = New Point(19, 59)
-        chkHobi5.Name = "chkHobi5"
-        chkHobi5.Size = New Size(72, 24)
-        chkHobi5.TabIndex = 4
-        chkHobi5.Text = "Musik"
-        chkHobi5.UseVisualStyleBackColor = True
+        cbHobi5.AutoSize = True
+        cbHobi5.Location = New Point(19, 59)
+        cbHobi5.Name = "cbHobi5"
+        cbHobi5.Size = New Size(72, 24)
+        cbHobi5.TabIndex = 4
+        cbHobi5.Text = "Musik"
+        cbHobi5.UseVisualStyleBackColor = True
         ' 
-        ' chkHobi4
+        ' cbHobi4
         ' 
-        chkHobi4.AutoSize = True
-        chkHobi4.Location = New Point(396, 25)
-        chkHobi4.Name = "chkHobi4"
-        chkHobi4.Size = New Size(79, 24)
-        chkHobi4.TabIndex = 3
-        chkHobi4.Text = "Diskusi"
-        chkHobi4.UseVisualStyleBackColor = True
+        cbHobi4.AutoSize = True
+        cbHobi4.Location = New Point(396, 25)
+        cbHobi4.Name = "cbHobi4"
+        cbHobi4.Size = New Size(79, 24)
+        cbHobi4.TabIndex = 3
+        cbHobi4.Text = "Diskusi"
+        cbHobi4.UseVisualStyleBackColor = True
         ' 
-        ' chkHobi3
+        ' cbHobi3
         ' 
-        chkHobi3.AutoSize = True
-        chkHobi3.Location = New Point(257, 25)
-        chkHobi3.Name = "chkHobi3"
-        chkHobi3.Size = New Size(85, 24)
-        chkHobi3.TabIndex = 2
-        chkHobi3.Text = "Menulis"
-        chkHobi3.UseVisualStyleBackColor = True
+        cbHobi3.AutoSize = True
+        cbHobi3.Location = New Point(257, 25)
+        cbHobi3.Name = "cbHobi3"
+        cbHobi3.Size = New Size(85, 24)
+        cbHobi3.TabIndex = 2
+        cbHobi3.Text = "Menulis"
+        cbHobi3.UseVisualStyleBackColor = True
         ' 
-        ' chkHobi2
+        ' cbHobi2
         ' 
-        chkHobi2.AutoSize = True
-        chkHobi2.Location = New Point(125, 25)
-        chkHobi2.Name = "chkHobi2"
-        chkHobi2.Size = New Size(98, 24)
-        chkHobi2.TabIndex = 1
-        chkHobi2.Text = "Membaca"
-        chkHobi2.UseVisualStyleBackColor = True
+        cbHobi2.AutoSize = True
+        cbHobi2.Location = New Point(125, 25)
+        cbHobi2.Name = "cbHobi2"
+        cbHobi2.Size = New Size(98, 24)
+        cbHobi2.TabIndex = 1
+        cbHobi2.Text = "Membaca"
+        cbHobi2.UseVisualStyleBackColor = True
         ' 
-        ' chkHobi1
+        ' cbHobi1
         ' 
-        chkHobi1.AutoSize = True
-        chkHobi1.Location = New Point(19, 25)
-        chkHobi1.Name = "chkHobi1"
-        chkHobi1.Size = New Size(80, 24)
-        chkHobi1.TabIndex = 0
-        chkHobi1.Text = "Coding"
-        chkHobi1.UseVisualStyleBackColor = True
+        cbHobi1.AutoSize = True
+        cbHobi1.Location = New Point(19, 25)
+        cbHobi1.Name = "cbHobi1"
+        cbHobi1.Size = New Size(80, 24)
+        cbHobi1.TabIndex = 0
+        cbHobi1.Text = "Coding"
+        cbHobi1.UseVisualStyleBackColor = True
         ' 
         ' GroupBoxPeran
         ' 
@@ -540,16 +547,16 @@ Partial Class Form_Input
         btnBrowse.Text = "Browse Foto"
         btnBrowse.UseVisualStyleBackColor = True
         ' 
-        ' PictureBoxProfil
+        ' pbProfil
         ' 
-        PictureBoxProfil.BackColor = Color.WhiteSmoke
-        PictureBoxProfil.BorderStyle = BorderStyle.FixedSingle
-        PictureBoxProfil.Location = New Point(21, 18)
-        PictureBoxProfil.Name = "PictureBoxProfil"
-        PictureBoxProfil.Size = New Size(95, 118)
-        PictureBoxProfil.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBoxProfil.TabIndex = 0
-        PictureBoxProfil.TabStop = False
+        pbProfil.BackColor = Color.WhiteSmoke
+        pbProfil.BorderStyle = BorderStyle.FixedSingle
+        pbProfil.Location = New Point(21, 18)
+        pbProfil.Name = "pbProfil"
+        pbProfil.Size = New Size(95, 118)
+        pbProfil.SizeMode = PictureBoxSizeMode.StretchImage
+        pbProfil.TabIndex = 0
+        pbProfil.TabStop = False
         ' 
         ' OpenFileDialog1
         ' 
@@ -562,15 +569,28 @@ Partial Class Form_Input
         ' 
         ' Panel1
         ' 
-        Panel1.BackColor = Color.FromArgb(CByte(26), CByte(42), CByte(58))
+        Panel1.BackColor = Color.MidnightBlue
+        Panel1.Controls.Add(lblJudul2)
         Panel1.Location = New Point(0, 31)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(721, 96)
         Panel1.TabIndex = 4
         ' 
+        ' lblJudul2
+        ' 
+        lblJudul2.AutoSize = True
+        lblJudul2.BackColor = Color.MidnightBlue
+        lblJudul2.Font = New Font("Verdana", 13.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblJudul2.ForeColor = Color.White
+        lblJudul2.Location = New Point(12, 49)
+        lblJudul2.Name = "lblJudul2"
+        lblJudul2.Size = New Size(296, 28)
+        lblJudul2.TabIndex = 14
+        lblJudul2.Text = "Golden State Warriors"
+        ' 
         ' FlowLayoutPanel1
         ' 
-        FlowLayoutPanel1.BackColor = Color.FromArgb(CByte(26), CByte(42), CByte(58))
+        FlowLayoutPanel1.BackColor = Color.MidnightBlue
         FlowLayoutPanel1.ForeColor = SystemColors.ControlText
         FlowLayoutPanel1.Location = New Point(0, 475)
         FlowLayoutPanel1.Name = "FlowLayoutPanel1"
@@ -593,17 +613,21 @@ Partial Class Form_Input
         Panel4.Size = New Size(721, 5)
         Panel4.TabIndex = 13
         ' 
+        ' ErrorProvider1
+        ' 
+        ErrorProvider1.ContainerControl = Me
+        ' 
         ' Form_Input
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 19.0F)
+        AutoScaleDimensions = New SizeF(8F, 19F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.WhiteSmoke
         ClientSize = New Size(721, 503)
         Controls.Add(Panel4)
         Controls.Add(Panel2)
         Controls.Add(TabControl1)
-        Controls.Add(PictureBoxLogo)
-        Controls.Add(lblJudul)
+        Controls.Add(pbLogo)
+        Controls.Add(lblJudul1)
         Controls.Add(MenuStrip)
         Controls.Add(Panel1)
         Controls.Add(FlowLayoutPanel1)
@@ -611,10 +635,10 @@ Partial Class Form_Input
         MainMenuStrip = MenuStrip
         Name = "Form_Input"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Aplikasi Kartu Komunitas"
+        Text = "Aplikasi Kartu Komunitas "
         MenuStrip.ResumeLayout(False)
         MenuStrip.PerformLayout()
-        CType(PictureBoxLogo, ComponentModel.ISupportInitialize).EndInit()
+        CType(pbLogo, ComponentModel.ISupportInitialize).EndInit()
         TabControl1.ResumeLayout(False)
         TabPage1.ResumeLayout(False)
         TabPage1.PerformLayout()
@@ -625,7 +649,10 @@ Partial Class Form_Input
         GroupBoxHobby.PerformLayout()
         GroupBoxPeran.ResumeLayout(False)
         GroupBoxPeran.PerformLayout()
-        CType(PictureBoxProfil, ComponentModel.ISupportInitialize).EndInit()
+        CType(pbProfil, ComponentModel.ISupportInitialize).EndInit()
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
+        CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
 
@@ -637,8 +664,8 @@ Partial Class Form_Input
     Friend WithEvents SimpanDataToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BukaDataToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents KeluarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents lblJudul As System.Windows.Forms.Label
-    Friend WithEvents PictureBoxLogo As System.Windows.Forms.PictureBox
+    Friend WithEvents lblJudul1 As System.Windows.Forms.Label
+    Friend WithEvents pbLogo As System.Windows.Forms.PictureBox
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
@@ -660,21 +687,21 @@ Partial Class Form_Input
     Friend WithEvents lblEmail As System.Windows.Forms.Label
     Friend WithEvents txtAlamat As System.Windows.Forms.TextBox
     Friend WithEvents lblAlamat As System.Windows.Forms.Label
-    Friend WithEvents PictureBoxProfil As System.Windows.Forms.PictureBox
+    Friend WithEvents pbProfil As System.Windows.Forms.PictureBox
     Friend WithEvents btnBrowse As System.Windows.Forms.Button
     Friend WithEvents GroupBoxPeran As System.Windows.Forms.GroupBox
     Friend WithEvents rbAdmin As System.Windows.Forms.RadioButton
     Friend WithEvents rbAnggota As System.Windows.Forms.RadioButton
     Friend WithEvents rbKetua As System.Windows.Forms.RadioButton
     Friend WithEvents GroupBoxHobby As System.Windows.Forms.GroupBox
-    Friend WithEvents chkHobi8 As System.Windows.Forms.CheckBox
-    Friend WithEvents chkHobi7 As System.Windows.Forms.CheckBox
-    Friend WithEvents chkHobi6 As System.Windows.Forms.CheckBox
-    Friend WithEvents chkHobi5 As System.Windows.Forms.CheckBox
-    Friend WithEvents chkHobi4 As System.Windows.Forms.CheckBox
-    Friend WithEvents chkHobi3 As System.Windows.Forms.CheckBox
-    Friend WithEvents chkHobi2 As System.Windows.Forms.CheckBox
-    Friend WithEvents chkHobi1 As System.Windows.Forms.CheckBox
+    Friend WithEvents cbHobi8 As System.Windows.Forms.CheckBox
+    Friend WithEvents cbHobi7 As System.Windows.Forms.CheckBox
+    Friend WithEvents cbHobi6 As System.Windows.Forms.CheckBox
+    Friend WithEvents cbHobi5 As System.Windows.Forms.CheckBox
+    Friend WithEvents cbHobi4 As System.Windows.Forms.CheckBox
+    Friend WithEvents cbHobi3 As System.Windows.Forms.CheckBox
+    Friend WithEvents cbHobi2 As System.Windows.Forms.CheckBox
+    Friend WithEvents cbHobi1 As System.Windows.Forms.CheckBox
     Friend WithEvents btnSimpanCetak As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
@@ -682,5 +709,7 @@ Partial Class Form_Input
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel4 As Panel
+    Friend WithEvents lblJudul2 As Label
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 
 End Class
