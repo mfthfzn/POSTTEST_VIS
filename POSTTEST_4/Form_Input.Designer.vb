@@ -33,17 +33,10 @@ Partial Class Form_Input
         pbLogo = New PictureBox()
         TabControl1 = New TabControl()
         TabPage1 = New TabPage()
-        cbKomunitas = New ComboBox()
-        lblKomunitas = New Label()
-        rbPerempuan = New RadioButton()
-        rbLaki = New RadioButton()
-        lblKelamin = New Label()
+        cbDivisi = New ComboBox()
         dtpTglLahir = New DateTimePicker()
-        lblTglLahir = New Label()
         txtID = New TextBox()
-        lblID = New Label()
         txtNama = New TextBox()
-        lblNama = New Label()
         TabPage2 = New TabPage()
         txtAlamat = New TextBox()
         lblAlamat = New Label()
@@ -63,7 +56,7 @@ Partial Class Form_Input
         cbHobi2 = New CheckBox()
         cbHobi1 = New CheckBox()
         GroupBoxPeran = New GroupBox()
-        rbAdmin = New RadioButton()
+        rbWakil = New RadioButton()
         rbAnggota = New RadioButton()
         rbKetua = New RadioButton()
         btnBrowse = New Button()
@@ -76,6 +69,13 @@ Partial Class Form_Input
         Panel2 = New Panel()
         Panel4 = New Panel()
         ErrorProvider1 = New ErrorProvider(components)
+        lblDivisi = New Label()
+        lblKelamin = New Label()
+        lblTglLahir = New Label()
+        lblID = New Label()
+        lblNama = New Label()
+        rbPerempuan = New RadioButton()
+        rbLaki = New RadioButton()
         MenuStrip.SuspendLayout()
         CType(pbLogo, ComponentModel.ISupportInitialize).BeginInit()
         TabControl1.SuspendLayout()
@@ -92,7 +92,7 @@ Partial Class Form_Input
         ' MenuStrip
         ' 
         MenuStrip.BackColor = Color.MidnightBlue
-        MenuStrip.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        MenuStrip.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         MenuStrip.ImageScalingSize = New Size(20, 20)
         MenuStrip.ImeMode = ImeMode.NoControl
         MenuStrip.Items.AddRange(New ToolStripItem() {InputDataToolStripMenuItem, LihatKartuToolStripMenuItem, SimpanDataToolStripMenuItem, BukaDataToolStripMenuItem, KeluarToolStripMenuItem})
@@ -145,9 +145,9 @@ Partial Class Form_Input
         lblJudul1.ForeColor = Color.White
         lblJudul1.Location = New Point(12, 49)
         lblJudul1.Name = "lblJudul1"
-        lblJudul1.Size = New Size(458, 28)
+        lblJudul1.Size = New Size(526, 28)
         lblJudul1.TabIndex = 1
-        lblJudul1.Text = "Aplikasi Pembuat Kartu Komunitas"
+        lblJudul1.Text = "Aplikasi Pembuat Kartu Komunitas Fans"
         ' 
         ' pbLogo
         ' 
@@ -166,7 +166,7 @@ Partial Class Form_Input
         TabControl1.Controls.Add(TabPage1)
         TabControl1.Controls.Add(TabPage2)
         TabControl1.Controls.Add(TabPage3)
-        TabControl1.Font = New Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        TabControl1.Font = New Font("Segoe UI Semibold", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         TabControl1.Location = New Point(12, 148)
         TabControl1.Name = "TabControl1"
         TabControl1.SelectedIndex = 0
@@ -176,8 +176,8 @@ Partial Class Form_Input
         ' TabPage1
         ' 
         TabPage1.BackColor = Color.White
-        TabPage1.Controls.Add(cbKomunitas)
-        TabPage1.Controls.Add(lblKomunitas)
+        TabPage1.Controls.Add(cbDivisi)
+        TabPage1.Controls.Add(lblDivisi)
         TabPage1.Controls.Add(rbPerempuan)
         TabPage1.Controls.Add(rbLaki)
         TabPage1.Controls.Add(lblKelamin)
@@ -187,6 +187,7 @@ Partial Class Form_Input
         TabPage1.Controls.Add(lblID)
         TabPage1.Controls.Add(txtNama)
         TabPage1.Controls.Add(lblNama)
+        TabPage1.ForeColor = Color.Black
         TabPage1.Location = New Point(4, 29)
         TabPage1.Name = "TabPage1"
         TabPage1.Padding = New Padding(3)
@@ -194,57 +195,15 @@ Partial Class Form_Input
         TabPage1.TabIndex = 0
         TabPage1.Text = "Data Utama"
         ' 
-        ' cbKomunitas
+        ' cbDivisi
         ' 
-        cbKomunitas.DropDownStyle = ComboBoxStyle.DropDownList
-        cbKomunitas.FormattingEnabled = True
-        cbKomunitas.Items.AddRange(New Object() {"Teknologi", "Seni & Budaya", "Olahraga", "Sosial", "Pendidikan"})
-        cbKomunitas.Location = New Point(219, 175)
-        cbKomunitas.Name = "cbKomunitas"
-        cbKomunitas.Size = New Size(289, 28)
-        cbKomunitas.TabIndex = 10
-        ' 
-        ' lblKomunitas
-        ' 
-        lblKomunitas.AutoSize = True
-        lblKomunitas.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold)
-        lblKomunitas.Location = New Point(23, 178)
-        lblKomunitas.Name = "lblKomunitas"
-        lblKomunitas.Size = New Size(150, 25)
-        lblKomunitas.TabIndex = 9
-        lblKomunitas.Text = "Jenis Komunitas"
-        ' 
-        ' rbPerempuan
-        ' 
-        rbPerempuan.AutoSize = True
-        rbPerempuan.Location = New Point(375, 137)
-        rbPerempuan.Name = "rbPerempuan"
-        rbPerempuan.Size = New Size(108, 24)
-        rbPerempuan.TabIndex = 8
-        rbPerempuan.TabStop = True
-        rbPerempuan.Text = "Perempuan"
-        rbPerempuan.UseVisualStyleBackColor = True
-        ' 
-        ' rbLaki
-        ' 
-        rbLaki.AutoSize = True
-        rbLaki.Location = New Point(221, 137)
-        rbLaki.Name = "rbLaki"
-        rbLaki.Size = New Size(90, 24)
-        rbLaki.TabIndex = 7
-        rbLaki.TabStop = True
-        rbLaki.Text = "Laki-Laki"
-        rbLaki.UseVisualStyleBackColor = True
-        ' 
-        ' lblKelamin
-        ' 
-        lblKelamin.AutoSize = True
-        lblKelamin.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold)
-        lblKelamin.Location = New Point(23, 139)
-        lblKelamin.Name = "lblKelamin"
-        lblKelamin.Size = New Size(128, 25)
-        lblKelamin.TabIndex = 6
-        lblKelamin.Text = "Jenis Kelamin"
+        cbDivisi.DropDownStyle = ComboBoxStyle.DropDownList
+        cbDivisi.FormattingEnabled = True
+        cbDivisi.Items.AddRange(New Object() {"Pengurus", "Kreatif", "Media"})
+        cbDivisi.Location = New Point(219, 175)
+        cbDivisi.Name = "cbDivisi"
+        cbDivisi.Size = New Size(289, 28)
+        cbDivisi.TabIndex = 10
         ' 
         ' dtpTglLahir
         ' 
@@ -253,32 +212,13 @@ Partial Class Form_Input
         dtpTglLahir.Size = New Size(289, 27)
         dtpTglLahir.TabIndex = 5
         ' 
-        ' lblTglLahir
-        ' 
-        lblTglLahir.AutoSize = True
-        lblTglLahir.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold)
-        lblTglLahir.Location = New Point(23, 102)
-        lblTglLahir.Name = "lblTglLahir"
-        lblTglLahir.Size = New Size(126, 25)
-        lblTglLahir.TabIndex = 4
-        lblTglLahir.Text = "Tanggal Lahir"
-        ' 
         ' txtID
         ' 
         txtID.Location = New Point(219, 60)
+        txtID.MaxLength = 10
         txtID.Name = "txtID"
         txtID.Size = New Size(289, 27)
         txtID.TabIndex = 3
-        ' 
-        ' lblID
-        ' 
-        lblID.AutoSize = True
-        lblID.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold)
-        lblID.Location = New Point(23, 63)
-        lblID.Name = "lblID"
-        lblID.Size = New Size(110, 25)
-        lblID.TabIndex = 2
-        lblID.Text = "ID Anggota"
         ' 
         ' txtNama
         ' 
@@ -286,16 +226,6 @@ Partial Class Form_Input
         txtNama.Name = "txtNama"
         txtNama.Size = New Size(289, 27)
         txtNama.TabIndex = 1
-        ' 
-        ' lblNama
-        ' 
-        lblNama.AutoSize = True
-        lblNama.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold)
-        lblNama.Location = New Point(23, 26)
-        lblNama.Name = "lblNama"
-        lblNama.Size = New Size(139, 25)
-        lblNama.TabIndex = 0
-        lblNama.Text = "Nama Lengkap"
         ' 
         ' TabPage2
         ' 
@@ -351,7 +281,7 @@ Partial Class Form_Input
         ' mtbTelepon
         ' 
         mtbTelepon.Location = New Point(136, 27)
-        mtbTelepon.Mask = "(9999) 0000-0000"
+        mtbTelepon.Mask = "0000-0000-0000"
         mtbTelepon.Name = "mtbTelepon"
         mtbTelepon.Size = New Size(250, 27)
         mtbTelepon.TabIndex = 1
@@ -386,7 +316,7 @@ Partial Class Form_Input
         btnSimpanCetak.Cursor = Cursors.Hand
         btnSimpanCetak.FlatAppearance.BorderSize = 0
         btnSimpanCetak.FlatStyle = FlatStyle.Flat
-        btnSimpanCetak.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnSimpanCetak.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnSimpanCetak.ForeColor = Color.White
         btnSimpanCetak.Location = New Point(462, 227)
         btnSimpanCetak.Name = "btnSimpanCetak"
@@ -494,7 +424,7 @@ Partial Class Form_Input
         ' 
         ' GroupBoxPeran
         ' 
-        GroupBoxPeran.Controls.Add(rbAdmin)
+        GroupBoxPeran.Controls.Add(rbWakil)
         GroupBoxPeran.Controls.Add(rbAnggota)
         GroupBoxPeran.Controls.Add(rbKetua)
         GroupBoxPeran.Location = New Point(145, 18)
@@ -504,21 +434,21 @@ Partial Class Form_Input
         GroupBoxPeran.TabStop = False
         GroupBoxPeran.Text = "Pilihan Peran"
         ' 
-        ' rbAdmin
+        ' rbWakil
         ' 
-        rbAdmin.AutoSize = True
-        rbAdmin.Location = New Point(242, 39)
-        rbAdmin.Name = "rbAdmin"
-        rbAdmin.Size = New Size(75, 24)
-        rbAdmin.TabIndex = 2
-        rbAdmin.TabStop = True
-        rbAdmin.Text = "Admin"
-        rbAdmin.UseVisualStyleBackColor = True
+        rbWakil.AutoSize = True
+        rbWakil.Location = New Point(120, 39)
+        rbWakil.Name = "rbWakil"
+        rbWakil.Size = New Size(67, 24)
+        rbWakil.TabIndex = 2
+        rbWakil.TabStop = True
+        rbWakil.Text = "Wakil"
+        rbWakil.UseVisualStyleBackColor = True
         ' 
         ' rbAnggota
         ' 
         rbAnggota.AutoSize = True
-        rbAnggota.Location = New Point(118, 39)
+        rbAnggota.Location = New Point(225, 39)
         rbAnggota.Name = "rbAnggota"
         rbAnggota.Size = New Size(89, 24)
         rbAnggota.TabIndex = 1
@@ -617,9 +547,81 @@ Partial Class Form_Input
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
+        ' lblDivisi
+        ' 
+        lblDivisi.AutoSize = True
+        lblDivisi.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold)
+        lblDivisi.Location = New Point(23, 178)
+        lblDivisi.Name = "lblDivisi"
+        lblDivisi.Size = New Size(105, 25)
+        lblDivisi.TabIndex = 9
+        lblDivisi.Text = "Jenis Divisi"
+        ' 
+        ' lblKelamin
+        ' 
+        lblKelamin.AutoSize = True
+        lblKelamin.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold)
+        lblKelamin.Location = New Point(23, 139)
+        lblKelamin.Name = "lblKelamin"
+        lblKelamin.Size = New Size(128, 25)
+        lblKelamin.TabIndex = 6
+        lblKelamin.Text = "Jenis Kelamin"
+        ' 
+        ' lblTglLahir
+        ' 
+        lblTglLahir.AutoSize = True
+        lblTglLahir.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold)
+        lblTglLahir.Location = New Point(23, 102)
+        lblTglLahir.Name = "lblTglLahir"
+        lblTglLahir.Size = New Size(126, 25)
+        lblTglLahir.TabIndex = 4
+        lblTglLahir.Text = "Tanggal Lahir"
+        ' 
+        ' lblID
+        ' 
+        lblID.AutoSize = True
+        lblID.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold)
+        lblID.Location = New Point(23, 63)
+        lblID.Name = "lblID"
+        lblID.Size = New Size(110, 25)
+        lblID.TabIndex = 2
+        lblID.Text = "ID Anggota"
+        ' 
+        ' lblNama
+        ' 
+        lblNama.AutoSize = True
+        lblNama.Font = New Font("Segoe UI", 10.8F, FontStyle.Bold)
+        lblNama.Location = New Point(23, 26)
+        lblNama.Name = "lblNama"
+        lblNama.Size = New Size(139, 25)
+        lblNama.TabIndex = 0
+        lblNama.Text = "Nama Lengkap"
+        ' 
+        ' rbPerempuan
+        ' 
+        rbPerempuan.AutoSize = True
+        rbPerempuan.Location = New Point(375, 137)
+        rbPerempuan.Name = "rbPerempuan"
+        rbPerempuan.Size = New Size(108, 24)
+        rbPerempuan.TabIndex = 8
+        rbPerempuan.TabStop = True
+        rbPerempuan.Text = "Perempuan"
+        rbPerempuan.UseVisualStyleBackColor = True
+        ' 
+        ' rbLaki
+        ' 
+        rbLaki.AutoSize = True
+        rbLaki.Location = New Point(221, 137)
+        rbLaki.Name = "rbLaki"
+        rbLaki.Size = New Size(90, 24)
+        rbLaki.TabIndex = 7
+        rbLaki.TabStop = True
+        rbLaki.Text = "Laki-Laki"
+        rbLaki.UseVisualStyleBackColor = True
+        ' 
         ' Form_Input
         ' 
-        AutoScaleDimensions = New SizeF(8F, 19F)
+        AutoScaleDimensions = New SizeF(8.0F, 19.0F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.WhiteSmoke
         ClientSize = New Size(721, 503)
@@ -635,7 +637,7 @@ Partial Class Form_Input
         MainMenuStrip = MenuStrip
         Name = "Form_Input"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Aplikasi Kartu Komunitas "
+        Text = "Aplikasi Komunitas Fans Golden State Warrior"
         MenuStrip.ResumeLayout(False)
         MenuStrip.PerformLayout()
         CType(pbLogo, ComponentModel.ISupportInitialize).EndInit()
@@ -671,16 +673,9 @@ Partial Class Form_Input
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents txtNama As System.Windows.Forms.TextBox
-    Friend WithEvents lblNama As System.Windows.Forms.Label
     Friend WithEvents txtID As System.Windows.Forms.TextBox
-    Friend WithEvents lblID As System.Windows.Forms.Label
     Friend WithEvents dtpTglLahir As System.Windows.Forms.DateTimePicker
-    Friend WithEvents lblTglLahir As System.Windows.Forms.Label
-    Friend WithEvents rbPerempuan As System.Windows.Forms.RadioButton
-    Friend WithEvents rbLaki As System.Windows.Forms.RadioButton
-    Friend WithEvents lblKelamin As System.Windows.Forms.Label
-    Friend WithEvents cbKomunitas As System.Windows.Forms.ComboBox
-    Friend WithEvents lblKomunitas As System.Windows.Forms.Label
+    Friend WithEvents cbDivisi As System.Windows.Forms.ComboBox
     Friend WithEvents lblTelepon As System.Windows.Forms.Label
     Friend WithEvents mtbTelepon As System.Windows.Forms.MaskedTextBox
     Friend WithEvents txtEmail As System.Windows.Forms.TextBox
@@ -690,7 +685,7 @@ Partial Class Form_Input
     Friend WithEvents pbProfil As System.Windows.Forms.PictureBox
     Friend WithEvents btnBrowse As System.Windows.Forms.Button
     Friend WithEvents GroupBoxPeran As System.Windows.Forms.GroupBox
-    Friend WithEvents rbAdmin As System.Windows.Forms.RadioButton
+    Friend WithEvents rbWakil As System.Windows.Forms.RadioButton
     Friend WithEvents rbAnggota As System.Windows.Forms.RadioButton
     Friend WithEvents rbKetua As System.Windows.Forms.RadioButton
     Friend WithEvents GroupBoxHobby As System.Windows.Forms.GroupBox
@@ -711,5 +706,12 @@ Partial Class Form_Input
     Friend WithEvents Panel4 As Panel
     Friend WithEvents lblJudul2 As Label
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents lblDivisi As Label
+    Friend WithEvents rbPerempuan As RadioButton
+    Friend WithEvents rbLaki As RadioButton
+    Friend WithEvents lblKelamin As Label
+    Friend WithEvents lblTglLahir As Label
+    Friend WithEvents lblID As Label
+    Friend WithEvents lblNama As Label
 
 End Class

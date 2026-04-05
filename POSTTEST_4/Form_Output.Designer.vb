@@ -23,6 +23,7 @@ Partial Class Form_Output
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         PanelKartu = New Panel()
+        btnTutup = New Button()
         PanelHeader = New Panel()
         pbLogo = New PictureBox()
         lblHeaderTitle = New Label()
@@ -31,13 +32,12 @@ Partial Class Form_Output
         lblValueKontak = New Label()
         lblStaticKontak = New Label()
         lblValueKomunitas = New Label()
-        lblStaticKomunitas = New Label()
+        lblStaticDivisi = New Label()
         lblValueID = New Label()
         lblStaticID = New Label()
         lblValueNama = New Label()
         lblStaticNama = New Label()
         PictureBoxFoto = New PictureBox()
-        btnTutup = New Button()
         PanelKartu.SuspendLayout()
         PanelHeader.SuspendLayout()
         CType(pbLogo, ComponentModel.ISupportInitialize).BeginInit()
@@ -48,13 +48,14 @@ Partial Class Form_Output
         ' 
         PanelKartu.BackColor = Color.White
         PanelKartu.BorderStyle = BorderStyle.FixedSingle
+        PanelKartu.Controls.Add(btnTutup)
         PanelKartu.Controls.Add(PanelHeader)
         PanelKartu.Controls.Add(lblValueHobby)
         PanelKartu.Controls.Add(lblStaticHobby)
         PanelKartu.Controls.Add(lblValueKontak)
         PanelKartu.Controls.Add(lblStaticKontak)
         PanelKartu.Controls.Add(lblValueKomunitas)
-        PanelKartu.Controls.Add(lblStaticKomunitas)
+        PanelKartu.Controls.Add(lblStaticDivisi)
         PanelKartu.Controls.Add(lblValueID)
         PanelKartu.Controls.Add(lblStaticID)
         PanelKartu.Controls.Add(lblValueNama)
@@ -62,8 +63,20 @@ Partial Class Form_Output
         PanelKartu.Controls.Add(PictureBoxFoto)
         PanelKartu.Location = New Point(12, 12)
         PanelKartu.Name = "PanelKartu"
-        PanelKartu.Size = New Size(526, 260)
+        PanelKartu.Size = New Size(526, 277)
         PanelKartu.TabIndex = 0
+        ' 
+        ' btnTutup
+        ' 
+        btnTutup.BackColor = Color.Red
+        btnTutup.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnTutup.ForeColor = Color.White
+        btnTutup.Location = New Point(229, 237)
+        btnTutup.Name = "btnTutup"
+        btnTutup.Size = New Size(94, 29)
+        btnTutup.TabIndex = 12
+        btnTutup.Text = "Tutup"
+        btnTutup.UseVisualStyleBackColor = False
         ' 
         ' PanelHeader
         ' 
@@ -150,16 +163,16 @@ Partial Class Form_Output
         lblValueKomunitas.TabIndex = 6
         lblValueKomunitas.Text = " "
         ' 
-        ' lblStaticKomunitas
+        ' lblStaticDivisi
         ' 
-        lblStaticKomunitas.AutoSize = True
-        lblStaticKomunitas.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        lblStaticKomunitas.ForeColor = Color.Gray
-        lblStaticKomunitas.Location = New Point(155, 136)
-        lblStaticKomunitas.Name = "lblStaticKomunitas"
-        lblStaticKomunitas.Size = New Size(83, 19)
-        lblStaticKomunitas.TabIndex = 5
-        lblStaticKomunitas.Text = "Komunitas:"
+        lblStaticDivisi.AutoSize = True
+        lblStaticDivisi.Font = New Font("Segoe UI", 8.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblStaticDivisi.ForeColor = Color.Gray
+        lblStaticDivisi.Location = New Point(155, 136)
+        lblStaticDivisi.Name = "lblStaticDivisi"
+        lblStaticDivisi.Size = New Size(49, 19)
+        lblStaticDivisi.TabIndex = 5
+        lblStaticDivisi.Text = "Divisi:"
         ' 
         ' lblValueID
         ' 
@@ -215,28 +228,12 @@ Partial Class Form_Output
         PictureBoxFoto.TabIndex = 0
         PictureBoxFoto.TabStop = False
         ' 
-        ' btnTutup
-        ' 
-        btnTutup.BackColor = Color.FromArgb(CByte(231), CByte(76), CByte(60))
-        btnTutup.Cursor = Cursors.Hand
-        btnTutup.FlatAppearance.BorderSize = 0
-        btnTutup.FlatStyle = FlatStyle.Flat
-        btnTutup.Font = New Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnTutup.ForeColor = Color.White
-        btnTutup.Location = New Point(225, 284)
-        btnTutup.Name = "btnTutup"
-        btnTutup.Size = New Size(100, 35)
-        btnTutup.TabIndex = 1
-        btnTutup.Text = "Tutup"
-        btnTutup.UseVisualStyleBackColor = False
-        ' 
         ' Form_Output
         ' 
         AutoScaleDimensions = New SizeF(8F, 19F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(236), CByte(240), CByte(241))
-        ClientSize = New Size(550, 329)
-        Controls.Add(btnTutup)
+        ClientSize = New Size(550, 301)
         Controls.Add(PanelKartu)
         Font = New Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         FormBorderStyle = FormBorderStyle.FixedDialog
@@ -244,7 +241,7 @@ Partial Class Form_Output
         MinimizeBox = False
         Name = "Form_Output"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Preview Kartu Komunitas"
+        Text = "Kartu Komunitas Fans Golden State Warrior"
         PanelKartu.ResumeLayout(False)
         PanelKartu.PerformLayout()
         PanelHeader.ResumeLayout(False)
@@ -264,11 +261,11 @@ Partial Class Form_Output
     Friend WithEvents lblValueKontak As System.Windows.Forms.Label
     Friend WithEvents lblStaticKontak As System.Windows.Forms.Label
     Friend WithEvents lblValueKomunitas As System.Windows.Forms.Label
-    Friend WithEvents lblStaticKomunitas As System.Windows.Forms.Label
+    Friend WithEvents lblStaticDivisi As System.Windows.Forms.Label
     Friend WithEvents lblValueID As System.Windows.Forms.Label
     Friend WithEvents lblStaticID As System.Windows.Forms.Label
     Friend WithEvents PanelHeader As System.Windows.Forms.Panel
     Friend WithEvents lblHeaderTitle As System.Windows.Forms.Label
-    Friend WithEvents btnTutup As System.Windows.Forms.Button
     Friend WithEvents pbLogo As PictureBox
+    Friend WithEvents btnTutup As Button
 End Class

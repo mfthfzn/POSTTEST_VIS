@@ -1,100 +1,176 @@
-﻿Public Class Form_Input
+﻿Imports System.IO
+
+Public Class Form_Input
+    Private fotoPath As String = ""
 
     Private Sub txtNama_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNama.KeyPress
-        ValidationModule.HanyaHuruf(e)
+        HanyaHuruf(e)
     End Sub
 
     Private Sub txtID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtID.KeyPress
-        ValidationModule.HanyaAngka(e)
+        HanyaAngka(e)
+    End Sub
+
+    Private Sub mtbTelepon_KeyPress(sender As Object, e As KeyPressEventArgs) Handles mtbTelepon.KeyPress
+        HanyaAngka(e)
+    End Sub
+
+    Private Sub txtNama_TextChanged(sender As Object, e As EventArgs) Handles txtNama.TextChanged
+        ValidasiTextBox(ErrorProvider1, txtNama, "Nama tidak boleh kosong")
+    End Sub
+
+    Private Sub txtID_TextChanged(sender As Object, e As EventArgs) Handles txtID.TextChanged
+        ValidasiTextBox(ErrorProvider1, txtID, "ID tidak boleh kosong")
+    End Sub
+
+    Private Sub txtEmail_TextChanged(sender As Object, e As EventArgs) Handles txtEmail.TextChanged
+        ValidasiTextBox(ErrorProvider1, txtEmail, "Email tidak boleh kosong")
+    End Sub
+
+    Private Sub txtAlamat_TextChanged(sender As Object, e As EventArgs) Handles txtAlamat.TextChanged
+        ValidasiTextBox(ErrorProvider1, txtAlamat, "Alamat tidak boleh kosong")
+    End Sub
+
+    Private Sub cbDivisi_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbDivisi.SelectedIndexChanged
+        ValidasiComboBox(ErrorProvider1, cbDivisi, "Pilih divisi komunitas")
+    End Sub
+
+    Private Sub mtbTelepon_TextChanged(sender As Object, e As EventArgs) Handles mtbTelepon.TextChanged
+        ValidasiMaskedTextBox(ErrorProvider1, mtbTelepon, "Nomor telepon belum lengkap")
     End Sub
 
     Private Sub btnBrowse_Click(sender As Object, e As EventArgs) Handles btnBrowse.Click
-        OpenFileDialog1.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"
+        OpenFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png"
+        OpenFileDialog1.Title = "Pilih Foto Profil"
+
         If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
-            pbProfil.Image = Image.FromFile(OpenFileDialog1.FileName)
+            fotoPath = OpenFileDialog1.FileName
+            pbProfil.Image = Image.FromFile(fotoPath)
         End If
     End Sub
 
-    Private Sub btnSimpanCetak_Click(sender As Object, e As EventArgs) Handles btnSimpanCetak.Click
-        If Not ValidationModule.ValidasiSemuaInput(ErrorProvider1, txtNama, txtID, cbKomunitas, mtbTelepon, txtEmail, txtAlamat, GroupBoxHobby, pbProfil) Then
-            MessageBox.Show("Silakan lengkapi data yang ditandai dengan ikon error!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    Private Sub btnSimpanCetak_Click(sender As Object, e As EventArgs) Handles btnSimpanCetak.Click, SimpanDataToolStripMenuItem.Click
+        If Not ValidasiSemuaInput(ErrorProvider1, txtNama, txtID, cbDivisi, mtbTelepon, txtEmail, txtAlamat) Then
+            MessageBox.Show("Masih ada data yang kosong atau tidak valid.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
 
-        Dim konfirmasi = MessageBox.Show("Apakah Anda yakin data sudah benar dan ingin mencetak kartu?", "Konfirmasi Cetak", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-        If konfirmasi = DialogResult.Yes Then
-            Dim fOutput As New Form_Output()
-
-            fOutput.lblValueNama.Text = txtNama.Text
-            fOutput.lblValueID.Text = txtID.Text
-            fOutput.lblValueKomunitas.Text = cbKomunitas.Text
-            fOutput.lblValueKontak.Text = mtbTelepon.Text
-            fOutput.PictureBoxFoto.Image = pbProfil.Image
-
-            Dim daftarHobi As String = ""
-            For Each ctrl As Control In GroupBoxHobby.Controls
-                If TypeOf ctrl Is CheckBox AndAlso DirectCast(ctrl, CheckBox).Checked Then
-                    daftarHobi &= "- " & ctrl.Text & vbCrLf
-                End If
-            Next
-            fOutput.lblValueHobby.Text = daftarHobi.Trim()
-
-            fOutput.ShowDialog()
-        End If
-    End Sub
-
-    Private Sub LihatKartuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LihatKartuToolStripMenuItem.Click
-        Me.Hide()
-        Form_Output.Show()
-    End Sub
-
-    Private Sub SimpanDataToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SimpanDataToolStripMenuItem.Click
-        If Not ValidationModule.ValidasiSemuaInput(ErrorProvider1, txtNama, txtID, cbKomunitas, mtbTelepon, txtEmail, txtAlamat, GroupBoxHobby, pbProfil) Then
-            MessageBox.Show("Lengkapi data terlebih dahulu sebelum menyimpan file!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Dim dialogResult As DialogResult = MessageBox.Show("Apakah ingin menyimpan data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If dialogResult = DialogResult.No Then
             Exit Sub
-        End If
+        Else
+            Dim jk As String = GetSelectedRadioButton({rbLaki, rbPerempuan})
+            Dim peran As String = GetSelectedRadioButton({rbKetua, rbWakil, rbAnggota})
+            Dim hobi As String = GetSelectedCheckBox({cbHobi1, cbHobi2, cbHobi3, cbHobi4, cbHobi5, cbHobi6, cbHobi7, cbHobi8})
 
-        Dim daftarHobi As String = ""
-        For Each ctrl As Control In GroupBoxHobby.Controls
-            If TypeOf ctrl Is CheckBox AndAlso DirectCast(ctrl, CheckBox).Checked Then
-                daftarHobi &= ctrl.Text & vbCrLf
+            Dim isiData As String =
+                "Nama=" & txtNama.Text & vbCrLf &
+                "ID=" & txtID.Text & vbCrLf &
+                "TglLahir=" & dtpTglLahir.Value.ToString("dd-MM-yyyy") & vbCrLf &
+                "JenisKelamin=" & jk & vbCrLf &
+                "Divisi=" & cbDivisi.Text & vbCrLf &
+                "Telepon=" & mtbTelepon.Text & vbCrLf &
+                "Email=" & txtEmail.Text & vbCrLf &
+                "Alamat=" & txtAlamat.Text & vbCrLf &
+                "Peran=" & peran & vbCrLf &
+                "Hobi=" & hobi & vbCrLf &
+                "FotoPath=" & fotoPath
+
+            If SimpanDataKeFile(SaveFileDialog1, isiData, "Data_" & txtID.Text & ".txt") Then
+                MessageBox.Show("Data berhasil disimpan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                TampilkanKartu()
             End If
-        Next
-
-        Dim isiTeks = DataModule.BuatIsiFile(txtNama.Text, txtID.Text, cbKomunitas.Text, mtbTelepon.Text, txtEmail.Text, txtAlamat.Text, daftarHobi)
-        Dim namaFileDefault = txtID.Text & "_" & txtNama.Text.Replace(" ", "_")
-
-        If DataModule.SimpanDataKeFile(SaveFileDialog1, isiTeks, namaFileDefault) Then
-            MessageBox.Show("Data berhasil disimpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
     Private Sub BukaDataToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BukaDataToolStripMenuItem.Click
-        Dim dataDict = DataModule.BukaDataDariFile(OpenFileDialog1)
+        Dim data As Dictionary(Of String, String) = BukaDataDariFile(OpenFileDialog1)
 
-        If dataDict IsNot Nothing AndAlso dataDict.Count > 0 Then
-            txtNama.Text = DataModule.AmbilNilai(dataDict, "Nama")
-            txtID.Text = DataModule.AmbilNilai(dataDict, "ID")
-            cbKomunitas.Text = DataModule.AmbilNilai(dataDict, "Komunitas")
-            mtbTelepon.Text = DataModule.AmbilNilai(dataDict, "Telepon")
-            txtEmail.Text = DataModule.AmbilNilai(dataDict, "Email")
-            txtAlamat.Text = DataModule.AmbilNilai(dataDict, "Alamat")
+        If data Is Nothing Then Exit Sub
 
-            Dim hobiTersimpan As String = DataModule.AmbilNilai(dataDict, "Hobi")
-            MessageBox.Show("Data berhasil dimuat!" & vbCrLf & "Hobi: " & hobiTersimpan, "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        txtNama.Text = AmbilNilai(data, "Nama")
+        txtID.Text = AmbilNilai(data, "ID")
+        cbDivisi.Text = AmbilNilai(data, "Divisi")
+        mtbTelepon.Text = AmbilNilai(data, "Telepon")
+        txtEmail.Text = AmbilNilai(data, "Email")
+        txtAlamat.Text = AmbilNilai(data, "Alamat")
+
+        Dim tglString As String = AmbilNilai(data, "TglLahir")
+        Dim tglHasil As DateTime
+
+        If DateTime.TryParseExact(tglString, "dd-MM-yyyy", Nothing, Nothing, tglHasil) Then
+            dtpTglLahir.Value = tglHasil
+        Else
+            dtpTglLahir.Value = DateTime.Now
         End If
+
+        Dim jk As String = AmbilNilai(data, "JenisKelamin")
+        If jk = "Laki-Laki" Then
+            rbLaki.Checked = True
+        ElseIf jk = "Perempuan" Then
+            rbPerempuan.Checked = True
+        End If
+
+        Dim peran As String = AmbilNilai(data, "Peran")
+        If peran = "Ketua" Then
+            rbKetua.Checked = True
+        ElseIf peran = "Wakil" Then
+            rbWakil.Checked = True
+        ElseIf peran = "Anggota" Then
+            rbWakil.Checked = True
+        End If
+
+        Dim hobiString As String = AmbilNilai(data, "Hobi")
+        Dim arrayHobi() As CheckBox = {cbHobi1, cbHobi2, cbHobi3, cbHobi4, cbHobi5, cbHobi6, cbHobi7, cbHobi8}
+
+        For Each cb As CheckBox In arrayHobi
+            cb.Checked = hobiString.Contains(cb.Text)
+        Next
+
+        fotoPath = AmbilNilai(data, "FotoPath")
+        If File.Exists(fotoPath) Then
+            pbProfil.Image = Image.FromFile(fotoPath)
+        Else
+            pbProfil.Image = Nothing
+        End If
+
+        MessageBox.Show("Data berhasil dimuat!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub KeluarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KeluarToolStripMenuItem.Click
-        Dim result = MessageBox.Show("Apakah Anda yakin ingin keluar dari aplikasi?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-        If result = DialogResult.Yes Then
-            Application.Exit()
+    Private Sub TampilkanKartu()
+        Dim formOutput As New Form_Output()
+        Dim hobi As String = GetSelectedCheckBox({cbHobi1, cbHobi2, cbHobi3, cbHobi4, cbHobi5, cbHobi6, cbHobi7, cbHobi8})
+        Dim kontak As String = mtbTelepon.Text
+
+        formOutput.lblValueNama.Text = txtNama.Text.ToUpper()
+        formOutput.lblValueID.Text = txtID.Text
+        formOutput.lblValueKomunitas.Text = cbDivisi.Text
+        formOutput.lblValueKontak.Text = kontak
+        formOutput.lblValueHobby.Text = hobi
+
+        If pbProfil.Image IsNot Nothing Then
+            formOutput.PictureBoxFoto.Image = pbProfil.Image
+        End If
+
+        formOutput.ShowDialog()
+    End Sub
+
+    Private Sub LihatKartuToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LihatKartuToolStripMenuItem.Click
+        If Not ValidasiSemuaInput(ErrorProvider1, txtNama, txtID, cbDivisi, mtbTelepon, txtEmail, txtAlamat) Then
+            MessageBox.Show("Harap isi data terlebih dahulu!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Else
+            TampilkanKartu()
         End If
     End Sub
 
     Private Sub InputDataToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InputDataToolStripMenuItem.Click
-        TabPage1.Show()
         TabControl1.SelectedTab = TabPage1
+        txtNama.Focus()
+    End Sub
+
+    Private Sub KeluarToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles KeluarToolStripMenuItem.Click
+        If MessageBox.Show("Apakah yakin ingin keluar?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            Me.Close()
+        End If
     End Sub
 End Class

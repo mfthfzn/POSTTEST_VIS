@@ -48,37 +48,6 @@
         End If
     End Function
 
-    Public Function ValidasiPictureBox(ep As ErrorProvider, pb As PictureBox, pesan As String) As Boolean
-        If pb.Image Is Nothing Then
-            ep.SetError(pb, pesan)
-            Return False
-        Else
-            ep.SetError(pb, "")
-            Return True
-        End If
-    End Function
-
-    Public Function ValidasiHobi(ep As ErrorProvider, gb As GroupBox, pesan As String) As Boolean
-        Dim adaHobi As Boolean = False
-        For Each ctrl As Control In gb.Controls
-            If TypeOf ctrl Is CheckBox Then
-                Dim chk As CheckBox = DirectCast(ctrl, CheckBox)
-                If chk.Checked Then
-                    adaHobi = True
-                    Exit For
-                End If
-            End If
-        Next
-
-        If Not adaHobi Then
-            ep.SetError(gb, pesan)
-            Return False
-        Else
-            ep.SetError(gb, "")
-            Return True
-        End If
-    End Function
-
     Public Function ValidasiSemuaInput(
         ep As ErrorProvider,
         txtNama As TextBox,
@@ -86,9 +55,7 @@
         cbKomunitas As ComboBox,
         mtbTelepon As MaskedTextBox,
         txtEmail As TextBox,
-        txtAlamat As TextBox,
-        gbHobby As GroupBox,
-        pbProfil As PictureBox
+        txtAlamat As TextBox
     ) As Boolean
 
         Dim namaValid As Boolean = ValidasiTextBox(ep, txtNama, "Nama tidak boleh kosong")
@@ -97,10 +64,8 @@
         Dim telpValid As Boolean = ValidasiMaskedTextBox(ep, mtbTelepon, "Nomor Telepon belum lengkap")
         Dim emailValid As Boolean = ValidasiTextBox(ep, txtEmail, "Email tidak boleh kosong")
         Dim alamatValid As Boolean = ValidasiTextBox(ep, txtAlamat, "Alamat tidak boleh kosong")
-        Dim hobiValid As Boolean = ValidasiHobi(ep, gbHobby, "Pilih minimal satu hobi")
-        Dim fotoValid As Boolean = ValidasiPictureBox(ep, pbProfil, "Foto profil harus diunggah")
 
-        Return namaValid And idValid And komunitasValid And telpValid And emailValid And alamatValid And hobiValid And fotoValid
+        Return namaValid And idValid And komunitasValid And telpValid And emailValid And alamatValid
     End Function
 
 End Module
