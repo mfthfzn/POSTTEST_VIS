@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|c:\\users\\omenm\\documents\\semester-4\\posttest_vis\\posttest_5\\my project\\form_input.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|solutionrelative:my project\\form_input.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|c:\\users\\omenm\\documents\\semester-4\\posttest_vis\\posttest_5\\my project\\form_input.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|solutionrelative:my project\\form_input.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|c:\\users\\omenm\\documents\\semester-4\\posttest_vis\\posttest_5\\validationmodule.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|solutionrelative:validationmodule.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|c:\\users\\omenm\\documents\\semester-4\\posttest_vis\\posttest_5\\datamodule.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|solutionrelative:datamodule.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|c:\\users\\omenm\\documents\\semester-4\\posttest_vis\\posttest_5\\form_login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|solutionrelative:form_login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|c:\\users\\omenm\\documents\\semester-4\\posttest_vis\\posttest_5\\form_login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|solutionrelative:form_login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|c:\\users\\omenm\\documents\\semester-4\\posttest_vis\\posttest_5\\form_login.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6ADFBDA6-2C01-9B72-D7F4-735003DCCFC7}|POSTTEST_5.vbproj|solutionrelative:form_login.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ValidationModule.vb",
+              "DocumentMoniker": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\ValidationModule.vb",
+              "RelativeDocumentMoniker": "ValidationModule.vb",
+              "ToolTip": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\ValidationModule.vb",
+              "RelativeToolTip": "ValidationModule.vb",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwC0AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-04-10T03:53:28.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form_Input.vb",
+              "DocumentMoniker": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\My Project\\Form_Input.vb",
+              "RelativeDocumentMoniker": "My Project\\Form_Input.vb",
+              "ToolTip": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\My Project\\Form_Input.vb",
+              "RelativeToolTip": "My Project\\Form_Input.vb",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAIwHkAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-04-10T03:14:43.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form_Input.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\My Project\\Form_Input.vb",
+              "RelativeDocumentMoniker": "My Project\\Form_Input.vb",
+              "ToolTip": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\My Project\\Form_Input.vb [Design]",
+              "RelativeToolTip": "My Project\\Form_Input.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-04-09T15:17:44.038Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataModule.vb",
+              "DocumentMoniker": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\DataModule.vb",
+              "RelativeDocumentMoniker": "DataModule.vb",
+              "ToolTip": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\DataModule.vb",
+              "RelativeToolTip": "DataModule.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF8AAAB/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-04-09T15:12:51.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form_Login.vb",
+              "DocumentMoniker": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\Form_Login.vb",
+              "RelativeDocumentMoniker": "Form_Login.vb",
+              "ToolTip": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\Form_Login.vb",
+              "RelativeToolTip": "Form_Login.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-04-09T15:12:26.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form_Login.Designer.vb",
+              "DocumentMoniker": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\Form_Login.Designer.vb",
+              "RelativeDocumentMoniker": "Form_Login.Designer.vb",
+              "ToolTip": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\Form_Login.Designer.vb",
+              "RelativeToolTip": "Form_Login.Designer.vb",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAAALoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-04-09T15:12:20.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form_Login.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\Form_Login.vb",
+              "RelativeDocumentMoniker": "Form_Login.vb",
+              "ToolTip": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\Form_Login.vb [Design]",
+              "RelativeToolTip": "Form_Login.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2026-04-09T15:11:54.07Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

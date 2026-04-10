@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "I88rioyFZ5M=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\omenm\\Documents\\semester-4\\POSTTEST_VIS\\POSTTEST_5\\POSTTEST_5.vbproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\omenm\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\omenm\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\omenm\\.nuget\\packages\\mysqlconnector\\2.5.0\\mysqlconnector.2.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
