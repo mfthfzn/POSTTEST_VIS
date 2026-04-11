@@ -176,7 +176,9 @@ Partial Class Form_Login
         Controls.Add(lblSubHeader)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
+        FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "Form_Login"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Login"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()

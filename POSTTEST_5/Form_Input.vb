@@ -108,26 +108,36 @@
     Private Sub txtSku_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSku.KeyPress
         If IsEnterKey(e) Then
             e.Handled = True
-            Dim dt As DataTable = GetPakaianBySku(txtSku.Text.Trim())
-
-            If dt.Rows.Count > 0 Then
-                txtSku.Text = dt.Rows(0)("sku").ToString()
-                txtNamaPakaian.Text = dt.Rows(0)("nama").ToString()
-                cbUkuran.Text = dt.Rows(0)("ukuran").ToString()
-                txtHarga.Text = dt.Rows(0)("harga").ToString()
-                txtStok.Text = dt.Rows(0)("stok").ToString()
-            Else
-                txtNamaPakaian.Clear()
-                cbUkuran.SelectedIndex = -1
-                txtHarga.Clear()
-                txtStok.Clear()
-            End If
             txtNamaPakaian.Focus()
         End If
     End Sub
 
     Private Sub txtNamaPakaian_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNamaPakaian.KeyPress
         HanyaHuruf(e)
+        If IsEnterKey(e) Then
+            e.Handled = True
+            cbUkuran.Focus()
+        End If
+    End Sub
+
+    Private Sub cbUkuran_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cbUkuran.KeyPress
+        HanyaHuruf(e)
+        If IsEnterKey(e) Then
+            e.Handled = True
+            txtHarga.Focus()
+        End If
+    End Sub
+
+    Private Sub txtHarga_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtHarga.KeyPress
+        HanyaAngka(e)
+        If IsEnterKey(e) Then
+            e.Handled = True
+            txtStok.Focus()
+        End If
+    End Sub
+
+    Private Sub txtStok_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtStok.KeyPress
+        HanyaAngka(e)
         If IsEnterKey(e) Then
             e.Handled = True
             btnSimpan.Focus()

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form_Input
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form_Input
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
         Panel1 = New Panel()
@@ -28,11 +28,6 @@ Partial Class Form_Input
         Panel2 = New Panel()
         txtSku = New TextBox()
         dgvPakaian = New DataGridView()
-        Column1 = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
-        Column3 = New DataGridViewTextBoxColumn()
-        Column4 = New DataGridViewTextBoxColumn()
-        Column5 = New DataGridViewTextBoxColumn()
         lblSku = New Label()
         Panel5 = New Panel()
         Panel3 = New Panel()
@@ -52,6 +47,11 @@ Partial Class Form_Input
         btnClear = New Button()
         btnKeluar = New Button()
         ErrorProvider1 = New ErrorProvider(components)
+        Column1 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
+        Column3 = New DataGridViewTextBoxColumn()
+        Column4 = New DataGridViewTextBoxColumn()
+        Column5 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
         CType(dgvPakaian, ComponentModel.ISupportInitialize).BeginInit()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
@@ -95,6 +95,8 @@ Partial Class Form_Input
         ' 
         ' dgvPakaian
         ' 
+        dgvPakaian.AllowUserToResizeColumns = False
+        dgvPakaian.AllowUserToResizeRows = False
         dgvPakaian.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgvPakaian.Columns.AddRange(New DataGridViewColumn() {Column1, Column2, Column3, Column4, Column5})
         dgvPakaian.Location = New Point(440, 164)
@@ -102,47 +104,6 @@ Partial Class Form_Input
         dgvPakaian.RowHeadersWidth = 51
         dgvPakaian.Size = New Size(804, 319)
         dgvPakaian.TabIndex = 6
-        ' 
-        ' Column1
-        ' 
-        Column1.DataPropertyName = "sku"
-        Column1.HeaderText = "SKU"
-        Column1.MaxInputLength = 15
-        Column1.MinimumWidth = 6
-        Column1.Name = "Column1"
-        Column1.Width = 125
-        ' 
-        ' Column2
-        ' 
-        Column2.DataPropertyName = "nama"
-        Column2.HeaderText = "Nama Pakaian"
-        Column2.MinimumWidth = 6
-        Column2.Name = "Column2"
-        Column2.Width = 300
-        ' 
-        ' Column3
-        ' 
-        Column3.DataPropertyName = "ukuran"
-        Column3.HeaderText = "Ukuran"
-        Column3.MinimumWidth = 6
-        Column3.Name = "Column3"
-        Column3.Width = 75
-        ' 
-        ' Column4
-        ' 
-        Column4.DataPropertyName = "harga"
-        Column4.HeaderText = "Harga"
-        Column4.MinimumWidth = 6
-        Column4.Name = "Column4"
-        Column4.Width = 125
-        ' 
-        ' Column5
-        ' 
-        Column5.DataPropertyName = "stok"
-        Column5.HeaderText = "Stok"
-        Column5.MinimumWidth = 6
-        Column5.Name = "Column5"
-        Column5.Width = 125
         ' 
         ' lblSku
         ' 
@@ -312,6 +273,47 @@ Partial Class Form_Input
         ' 
         ErrorProvider1.ContainerControl = Me
         ' 
+        ' Column1
+        ' 
+        Column1.DataPropertyName = "sku"
+        Column1.HeaderText = "SKU"
+        Column1.MaxInputLength = 15
+        Column1.MinimumWidth = 6
+        Column1.Name = "Column1"
+        Column1.Width = 125
+        ' 
+        ' Column2
+        ' 
+        Column2.DataPropertyName = "nama"
+        Column2.HeaderText = "Nama Pakaian"
+        Column2.MinimumWidth = 6
+        Column2.Name = "Column2"
+        Column2.Width = 300
+        ' 
+        ' Column3
+        ' 
+        Column3.DataPropertyName = "ukuran"
+        Column3.HeaderText = "Ukuran"
+        Column3.MinimumWidth = 6
+        Column3.Name = "Column3"
+        Column3.Width = 75
+        ' 
+        ' Column4
+        ' 
+        Column4.AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        Column4.DataPropertyName = "harga"
+        Column4.HeaderText = "Harga"
+        Column4.MinimumWidth = 6
+        Column4.Name = "Column4"
+        ' 
+        ' Column5
+        ' 
+        Column5.AutoSizeMode = DataGridViewAutoSizeColumnMode.None
+        Column5.DataPropertyName = "stok"
+        Column5.HeaderText = "Stok"
+        Column5.MinimumWidth = 6
+        Column5.Name = "Column5"
+        ' 
         ' Form_Input
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
@@ -339,7 +341,9 @@ Partial Class Form_Input
         Controls.Add(txtSku)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
+        FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "Form_Input"
+        StartPosition = FormStartPosition.CenterScreen
         Text = "Form_Input"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()

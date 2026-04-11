@@ -30,7 +30,7 @@ Module DataModule
     Public Function GetAllPakaian() As DataTable
         Dim dt As New DataTable()
         Try
-            Dim query As String = "SELECT sku, nama, ukuran, harga, stok FROM pakaian ORDER BY sku ASC"
+            Dim query As String = "SELECT sku, nama, ukuran, harga, stok FROM pakaian ORDER BY nama ASC"
             Using conn As MySqlConnection = GetConnection()
                 Using da As New MySqlDataAdapter(query, conn)
                     da.Fill(dt)
@@ -49,22 +49,6 @@ Module DataModule
             Using conn As MySqlConnection = GetConnection()
                 Using da As New MySqlDataAdapter(query, conn)
                     da.SelectCommand.Parameters.AddWithValue("@keyword", "%" & keyword & "%")
-                    da.Fill(dt)
-                End Using
-            End Using
-        Catch ex As Exception
-            MessageBox.Show("Gagal mencari data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-        Return dt
-    End Function
-
-    Public Function GetPakaianBySku(sku As String) As DataTable
-        Dim dt As New DataTable()
-        Try
-            Dim query As String = "SELECT sku, nama, ukuran, harga, stok FROM pakaian WHERE sku = @sku"
-            Using conn As MySqlConnection = GetConnection()
-                Using da As New MySqlDataAdapter(query, conn)
-                    da.SelectCommand.Parameters.AddWithValue("@sku", sku)
                     da.Fill(dt)
                 End Using
             End Using
