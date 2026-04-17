@@ -43,7 +43,7 @@
         Dim harga As String = txtHarga.Text.Trim()
         Dim stok As String = txtStok.Text.Trim()
 
-        If DataSudahAda(sku) Then
+        If DataSudahAdaPakaian(sku) Then
             MessageBox.Show("Kode SKU sudah terdaftar", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             txtSku.Focus()
             Exit Sub
