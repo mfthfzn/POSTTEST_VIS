@@ -71,7 +71,7 @@ Partial Class Form_Login
         ' lblSubHeader
         ' 
         lblSubHeader.AutoSize = True
-        lblSubHeader.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblSubHeader.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblSubHeader.ForeColor = Color.Black
         lblSubHeader.Location = New Point(39, 117)
         lblSubHeader.Name = "lblSubHeader"
@@ -90,7 +90,7 @@ Partial Class Form_Login
         ' lblUsername
         ' 
         lblUsername.AutoSize = True
-        lblUsername.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblUsername.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         lblUsername.ForeColor = Color.Black
         lblUsername.Location = New Point(39, 169)
         lblUsername.Name = "lblUsername"
@@ -101,7 +101,7 @@ Partial Class Form_Login
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Segoe UI Semibold", 12.0F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label1.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.Black
         Label1.Location = New Point(39, 230)
         Label1.Name = "Label1"
@@ -128,7 +128,7 @@ Partial Class Form_Login
         ' 
         txtPassword.Location = New Point(184, 234)
         txtPassword.Name = "txtPassword"
-        txtPassword.PasswordChar = "*"c
+        txtPassword.PasswordChar = "●"c
         txtPassword.Size = New Size(319, 27)
         txtPassword.TabIndex = 7
         ' 
@@ -162,7 +162,7 @@ Partial Class Form_Login
         ' 
         ' Form_Login
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(555, 345)
         Controls.Add(btnKeluar)

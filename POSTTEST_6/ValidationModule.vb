@@ -53,6 +53,13 @@
         Return skuValid And namaPakaianValid And ukuranValid And hargaValid And stokValid
     End Function
 
+    Public Function ValidasiDataUkuran(ep As ErrorProvider, txtIdUkuran As TextBox, txtUkuran As TextBox) As Boolean
+        Dim skuValid As Boolean = ValidasiTextBox(ep, txtIdUkuran, "Sku tidak boleh kosong")
+        Dim namaPakaianValid As Boolean = ValidasiTextBox(ep, txtUkuran, "Nama Pakaian tidak boleh kosong")
+
+        Return skuValid And namaPakaianValid
+    End Function
+
     Public Function IsEnterKey(e As KeyPressEventArgs) As Boolean
         Return e.KeyChar = ChrW(13)
     End Function

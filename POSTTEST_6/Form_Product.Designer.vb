@@ -50,10 +50,8 @@ Partial Class Form_Product
         btnHapus = New Button()
         btnUbah = New Button()
         btnClear = New Button()
-        btnKeluar = New Button()
         ErrorProvider1 = New ErrorProvider(components)
         menuStrip = New MenuStrip()
-        MainToolStripMenuItem = New ToolStripMenuItem()
         ProductToolStripMenuItem = New ToolStripMenuItem()
         SizeToolStripMenuItem = New ToolStripMenuItem()
         LogOutToolStripMenuItem = New ToolStripMenuItem()
@@ -309,15 +307,6 @@ Partial Class Form_Product
         btnClear.Text = "Clear"
         btnClear.UseVisualStyleBackColor = True
         ' 
-        ' btnKeluar
-        ' 
-        btnKeluar.Location = New Point(297, 475)
-        btnKeluar.Name = "btnKeluar"
-        btnKeluar.Size = New Size(94, 29)
-        btnKeluar.TabIndex = 22
-        btnKeluar.Text = "Keluar"
-        btnKeluar.UseVisualStyleBackColor = True
-        ' 
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
@@ -327,19 +316,12 @@ Partial Class Form_Product
         menuStrip.BackColor = Color.MidnightBlue
         menuStrip.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         menuStrip.ImageScalingSize = New Size(20, 20)
-        menuStrip.Items.AddRange(New ToolStripItem() {MainToolStripMenuItem, ProductToolStripMenuItem, SizeToolStripMenuItem, LogOutToolStripMenuItem})
+        menuStrip.Items.AddRange(New ToolStripItem() {ProductToolStripMenuItem, SizeToolStripMenuItem, LogOutToolStripMenuItem})
         menuStrip.Location = New Point(0, 0)
         menuStrip.Name = "menuStrip"
         menuStrip.Size = New Size(1261, 31)
         menuStrip.TabIndex = 24
         menuStrip.Text = "MenuStrip1"
-        ' 
-        ' MainToolStripMenuItem
-        ' 
-        MainToolStripMenuItem.ForeColor = Color.White
-        MainToolStripMenuItem.Name = "MainToolStripMenuItem"
-        MainToolStripMenuItem.Size = New Size(63, 27)
-        MainToolStripMenuItem.Text = "Main"
         ' 
         ' ProductToolStripMenuItem
         ' 
@@ -368,7 +350,6 @@ Partial Class Form_Product
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(1261, 546)
         Controls.Add(menuStrip)
-        Controls.Add(btnKeluar)
         Controls.Add(btnClear)
         Controls.Add(btnUbah)
         Controls.Add(btnHapus)
@@ -426,7 +407,6 @@ Partial Class Form_Product
     Friend WithEvents btnHapus As Button
     Friend WithEvents btnUbah As Button
     Friend WithEvents btnClear As Button
-    Friend WithEvents btnKeluar As Button
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
@@ -434,7 +414,6 @@ Partial Class Form_Product
     Friend WithEvents Column4 As DataGridViewTextBoxColumn
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents menuStrip As MenuStrip
-    Friend WithEvents MainToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SizeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogOutToolStripMenuItem As ToolStripMenuItem

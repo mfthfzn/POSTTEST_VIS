@@ -7,7 +7,7 @@
 
         If getUser(txtUsername.Text.Trim(), txtPassword.Text.Trim()) Then
             MessageBox.Show("Login berhasil!", "Sukses Login", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Form_Main.Show()
+            Form_Product.Show()
             Me.Hide()
         Else
             MessageBox.Show("Username atau password salah!", "Login Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -18,14 +18,10 @@
 
     End Sub
 
-    Private Sub btnKeluar_Click(sender As Object, e As EventArgs)
+    Private Sub btnKeluar_Click(sender As Object, e As EventArgs) Handles btnKeluar.Click
         Dim result = MessageBox.Show("Apakah Anda yakin ingin menutup aplikasi?", "Konfirmasi Menutup", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
-            Close()
+            Application.Exit()
         End If
-    End Sub
-
-    Private Sub Form_Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

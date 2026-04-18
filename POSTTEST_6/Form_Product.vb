@@ -15,19 +15,26 @@
         kosong()
     End Sub
 
-    Private Sub btnKeluar_Click(sender As Object, e As EventArgs) Handles btnKeluar.Click
-        Dim result As DialogResult = MessageBox.Show("Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If result = DialogResult.Yes Then
-            Me.Close()
-            Form_Login.Show()
-        End If
-    End Sub
-
     Private Sub TampilData()
         dgvPakaian.DataSource = GetAllPakaian()
     End Sub
 
-    Private Sub Form_Input_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub RefreshUkuran()
+        Dim dtUkuran As DataTable = DataModule.GetAllUkuran()
+        cbUkuran.DataSource = dtUkuran
+
+        cbUkuran.DisplayMember = "nama"
+        cbUkuran.ValueMember = "id"
+    End Sub
+
+    Private Sub Form_Product_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RefreshUkuran()
+        kosong()
+        TampilData()
+    End Sub
+
+    Private Sub Form_Product_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        RefreshUkuran()
         kosong()
         TampilData()
     End Sub
@@ -77,20 +84,23 @@
     End Sub
 
     Private Sub btnHapus_Click(sender As Object, e As EventArgs) Handles btnHapus.Click
-        If txtSku.Text.Trim() = "" Then
+        Dim skuDihapus As String = txtSku.Text.Trim()
+
+        If skuDihapus = "" Then
             MessageBox.Show("Pilih data yang akan dihapus", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             txtSku.Focus()
             Exit Sub
         End If
 
-        Dim hasil As DialogResult
-        hasil = MessageBox.Show("Apakah data ingin dihapus?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim hasil As DialogResult = MessageBox.Show("Apakah data ingin dihapus?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If hasil = DialogResult.Yes Then
-            If HapusPakaian(txtSku.Text.Trim()) Then
+            If HapusPakaian(skuDihapus) Then
                 MessageBox.Show("Data berhasil dihapus", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                TampilData()
                 kosong()
+                TampilData()
+            Else
+                MessageBox.Show("Gagal menghapus! Pastikan SKU benar dan data ada di tabel.", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         End If
     End Sub
@@ -145,22 +155,22 @@
     End Sub
 
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
-        If txtSearch.Text.Trim() = "" Then
+
+        Dim kata As String = txtSearch.Text.Trim()
+
+        If kata = "" Then
             TampilData()
         Else
-            dgvPakaian.DataSource = SearchPakaian(txtSearch.Text.Trim())
+            dgvPakaian.DataSource = SearchPakaian(kata)
         End If
     End Sub
 
-    Private Sub MainToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        Form_Main.Show()
-    End Sub
-
-    Private Sub SizeToolStripMenuItem_Click(sender As Object, e As EventArgs)
+    Private Sub SizeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SizeToolStripMenuItem.Click
+        Me.Hide()
         Form_Size.Show()
     End Sub
 
-    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs)
+    Private Sub LogOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogOutToolStripMenuItem.Click
         Dim result = MessageBox.Show("Apakah anda yakin ingin logout?", "Konfirmasi Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.Yes Then
             Form_Login.Show()

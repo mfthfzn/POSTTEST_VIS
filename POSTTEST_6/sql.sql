@@ -24,7 +24,7 @@ CREATE TABLE pakaian (
     CONSTRAINT fk_pakaian_ukuran
 		FOREIGN KEY(id_ukuran)
         REFERENCES ukuran(id)
-        ON UPDATE CASCADE
+        ON UPDATE RESTRICT
         ON DELETE RESTRICT
 ) ENGINE = innodb;
 
@@ -40,6 +40,10 @@ INSERT INTO ukuran(id, nama)
     
 INSERT INTO pakaian(sku, nama, harga, stok, id_ukuran)
 	VALUES ("UNI-FLB-BLU-LGE", "Kemeja Flanel Pria Lengan Panjang Uniqlo Warna Biru", 200000, 200, "S01");
+    
+UPDATE ukuran
+	SET nama = "XL"
+	WHERE id = "S01";
     
 SELECT * FROM user;
 SELECT * FROM pakaian;

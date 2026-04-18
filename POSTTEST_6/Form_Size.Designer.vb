@@ -27,7 +27,9 @@ Partial Class Form_Size
         lblHeader = New Label()
         Panel2 = New Panel()
         txtIdUkuran = New TextBox()
-        dgvPakaian = New DataGridView()
+        dgvUkuran = New DataGridView()
+        Column1 = New DataGridViewTextBoxColumn()
+        Column2 = New DataGridViewTextBoxColumn()
         lblIdUkuran = New Label()
         Panel5 = New Panel()
         Panel3 = New Panel()
@@ -39,17 +41,13 @@ Partial Class Form_Size
         btnHapus = New Button()
         btnUbah = New Button()
         btnClear = New Button()
-        btnKeluar = New Button()
         ErrorProvider1 = New ErrorProvider(components)
         menuStrip = New MenuStrip()
-        MainToolStripMenuItem = New ToolStripMenuItem()
         ProductToolStripMenuItem = New ToolStripMenuItem()
         SizeToolStripMenuItem = New ToolStripMenuItem()
         LogOutToolStripMenuItem = New ToolStripMenuItem()
-        Column1 = New DataGridViewTextBoxColumn()
-        Column2 = New DataGridViewTextBoxColumn()
         Panel1.SuspendLayout()
-        CType(dgvPakaian, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvUkuran, ComponentModel.ISupportInitialize).BeginInit()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).BeginInit()
         menuStrip.SuspendLayout()
         SuspendLayout()
@@ -90,17 +88,33 @@ Partial Class Form_Size
         txtIdUkuran.Size = New Size(232, 27)
         txtIdUkuran.TabIndex = 5
         ' 
-        ' dgvPakaian
+        ' dgvUkuran
         ' 
-        dgvPakaian.AllowUserToResizeColumns = False
-        dgvPakaian.AllowUserToResizeRows = False
-        dgvPakaian.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgvPakaian.Columns.AddRange(New DataGridViewColumn() {Column1, Column2})
-        dgvPakaian.Location = New Point(440, 194)
-        dgvPakaian.Name = "dgvPakaian"
-        dgvPakaian.RowHeadersWidth = 51
-        dgvPakaian.Size = New Size(303, 139)
-        dgvPakaian.TabIndex = 6
+        dgvUkuran.AllowUserToResizeColumns = False
+        dgvUkuran.AllowUserToResizeRows = False
+        dgvUkuran.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvUkuran.Columns.AddRange(New DataGridViewColumn() {Column1, Column2})
+        dgvUkuran.Location = New Point(440, 194)
+        dgvUkuran.Name = "dgvUkuran"
+        dgvUkuran.RowHeadersWidth = 51
+        dgvUkuran.Size = New Size(303, 139)
+        dgvUkuran.TabIndex = 6
+        ' 
+        ' Column1
+        ' 
+        Column1.DataPropertyName = "id"
+        Column1.HeaderText = "ID ukuran"
+        Column1.MinimumWidth = 6
+        Column1.Name = "Column1"
+        Column1.Width = 125
+        ' 
+        ' Column2
+        ' 
+        Column2.DataPropertyName = "nama"
+        Column2.HeaderText = "Ukuran"
+        Column2.MinimumWidth = 6
+        Column2.Name = "Column2"
+        Column2.Width = 125
         ' 
         ' lblIdUkuran
         ' 
@@ -201,15 +215,6 @@ Partial Class Form_Size
         btnClear.Text = "Clear"
         btnClear.UseVisualStyleBackColor = True
         ' 
-        ' btnKeluar
-        ' 
-        btnKeluar.Location = New Point(297, 304)
-        btnKeluar.Name = "btnKeluar"
-        btnKeluar.Size = New Size(94, 29)
-        btnKeluar.TabIndex = 22
-        btnKeluar.Text = "Keluar"
-        btnKeluar.UseVisualStyleBackColor = True
-        ' 
         ' ErrorProvider1
         ' 
         ErrorProvider1.ContainerControl = Me
@@ -220,19 +225,12 @@ Partial Class Form_Size
         menuStrip.BackColor = Color.MidnightBlue
         menuStrip.Font = New Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         menuStrip.ImageScalingSize = New Size(20, 20)
-        menuStrip.Items.AddRange(New ToolStripItem() {MainToolStripMenuItem, ProductToolStripMenuItem, SizeToolStripMenuItem, LogOutToolStripMenuItem})
+        menuStrip.Items.AddRange(New ToolStripItem() {ProductToolStripMenuItem, SizeToolStripMenuItem, LogOutToolStripMenuItem})
         menuStrip.Location = New Point(0, 0)
         menuStrip.Name = "menuStrip"
         menuStrip.Size = New Size(763, 31)
         menuStrip.TabIndex = 24
         menuStrip.Text = "MenuStrip1"
-        ' 
-        ' MainToolStripMenuItem
-        ' 
-        MainToolStripMenuItem.ForeColor = Color.White
-        MainToolStripMenuItem.Name = "MainToolStripMenuItem"
-        MainToolStripMenuItem.Size = New Size(63, 27)
-        MainToolStripMenuItem.Text = "Main"
         ' 
         ' ProductToolStripMenuItem
         ' 
@@ -255,27 +253,12 @@ Partial Class Form_Size
         LogOutToolStripMenuItem.Size = New Size(86, 27)
         LogOutToolStripMenuItem.Text = "Log Out"
         ' 
-        ' Column1
-        ' 
-        Column1.HeaderText = "ID ukuran"
-        Column1.MinimumWidth = 6
-        Column1.Name = "Column1"
-        Column1.Width = 125
-        ' 
-        ' Column2
-        ' 
-        Column2.HeaderText = "Ukuran"
-        Column2.MinimumWidth = 6
-        Column2.Name = "Column2"
-        Column2.Width = 125
-        ' 
         ' Form_Size
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(763, 375)
         Controls.Add(menuStrip)
-        Controls.Add(btnKeluar)
         Controls.Add(btnClear)
         Controls.Add(btnUbah)
         Controls.Add(btnHapus)
@@ -287,7 +270,7 @@ Partial Class Form_Size
         Controls.Add(Panel3)
         Controls.Add(Panel5)
         Controls.Add(lblIdUkuran)
-        Controls.Add(dgvPakaian)
+        Controls.Add(dgvUkuran)
         Controls.Add(txtIdUkuran)
         Controls.Add(Panel2)
         Controls.Add(Panel1)
@@ -297,7 +280,7 @@ Partial Class Form_Size
         Text = "Form_Size"
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
-        CType(dgvPakaian, ComponentModel.ISupportInitialize).EndInit()
+        CType(dgvUkuran, ComponentModel.ISupportInitialize).EndInit()
         CType(ErrorProvider1, ComponentModel.ISupportInitialize).EndInit()
         menuStrip.ResumeLayout(False)
         menuStrip.PerformLayout()
@@ -309,7 +292,7 @@ Partial Class Form_Size
     Friend WithEvents lblHeader As Label
     Friend WithEvents Panel2 As Panel
     Friend WithEvents txtIdUkuran As TextBox
-    Friend WithEvents dgvPakaian As DataGridView
+    Friend WithEvents dgvUkuran As DataGridView
     Friend WithEvents lblIdUkuran As Label
     Friend WithEvents Panel5 As Panel
     Friend WithEvents Panel3 As Panel
@@ -321,10 +304,8 @@ Partial Class Form_Size
     Friend WithEvents btnHapus As Button
     Friend WithEvents btnUbah As Button
     Friend WithEvents btnClear As Button
-    Friend WithEvents btnKeluar As Button
     Friend WithEvents ErrorProvider1 As ErrorProvider
     Friend WithEvents menuStrip As MenuStrip
-    Friend WithEvents MainToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ProductToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SizeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogOutToolStripMenuItem As ToolStripMenuItem
